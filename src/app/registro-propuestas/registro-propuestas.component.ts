@@ -31,7 +31,7 @@ export class RegistroPropuestasComponent {
   propuestas: Propuesta[] = [
     {
       titulo: 'Sistema de Gestión de Recursos Educativos Basado en la Nube',
-      estudiante: 'Walter Alejandro Duchi Rivera',
+      estudiante: 'DUCHI RIVERA WALTER ALEJANDRO',
       fechaCarga: '2023-10-01',
       estado: 'Pendiente',
       revisor: null,
@@ -39,11 +39,35 @@ export class RegistroPropuestasComponent {
     },
     {
       titulo: 'Aplicación Móvil de Detección de Enfermedades Usando IA',
-      estudiante: 'Christopher Jeremy Veléz Pulido',
+      estudiante: 'VELEZ PULIDO CHRISTOPHER JEREMY',
       fechaCarga: '2023-10-02',
       estado: 'En Revisión',
       revisor: null,
       archivo: 'path/to/documentB.pdf'
+    },
+    {
+      titulo: 'Sistema de Monitoreo de Rendimiento Académico',
+      estudiante: 'CARRILLO SANCHEZ NARCISA MARIA',
+      fechaCarga: '2023-10-03',
+      estado: 'Pendiente',
+      revisor: null,
+      archivo: 'path/to/documentC.pdf'
+    },
+    {
+      titulo: 'Plataforma de Gestión de Proyectos de Software',
+      estudiante: 'LINDAO ALEJANDRO JOSEPH GUILLERMO',
+      fechaCarga: '2023-10-04',
+      estado: 'Pendiente',
+      revisor: null,
+      archivo: 'path/to/documentD.pdf'
+    },
+    {
+      titulo: 'Sistema de Automatización de Procesos Administrativos',
+      estudiante: 'TOALA MERCHAN MADELINE CAROLINA',
+      fechaCarga: '2023-10-05',
+      estado: 'Pendiente',
+      revisor: null,
+      archivo: 'path/to/documentE.pdf'
     }
   ];
 
