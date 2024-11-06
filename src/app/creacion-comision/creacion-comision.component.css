@@ -1,0 +1,199 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Cuerpo general */
+body {
+  background-color: #f0f4f8;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Estilos de la tarjeta principal */
+.main-card {
+  background-color: #ffffff;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.main-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Encabezado de la tarjeta */
+.mat-card-header {
+  background: linear-gradient(135deg, #005dcb, #0056b3);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Títulos */
+.mat-card-title {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.mat-card-subtitle {
+  color: #e0e0e0 !important;
+  font-size: 1.2rem !important;
+}
+
+/* Sección de formulario */
+form {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+/* Mejoras en campos de formulario */
+label {
+  font-weight: 600;
+  color: #333;
+}
+
+input, textarea, select {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+
+button {
+  background-color: #005dcb;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: #004b99;
+  box-shadow: 0 4px 8px rgba(0, 93, 203, 0.3);
+}
+
+button[disabled] {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+/* Mejoras en la tabla */
+table {
+  width: 100%;
+  margin-top: 2rem;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f8f9fa;
+  color: #005dcb;
+}
+
+td {
+  background-color: #ffffff;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Detalles de la propuesta */
+.detalle-propuesta {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+
+.detalle-propuesta p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.detalle-propuesta ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.detalle-propuesta ul li {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.detalle-propuesta ul li a {
+  color: #005dcb;
+  text-decoration: none;
+}
+
+.detalle-propuesta ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Mejoras en la sección de propuestas */
+select {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Mensajes de estado */
+.status-section {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  border-radius: 8px;
+}
+
+.status-pendiente, .status-con-observaciones, .status-aprobada, .status-reprobada {
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: white;
+}
+
+.status-pendiente {
+  background-color: #e0e0e0;
+}
+
+.status-con-observaciones {
+  background-color: #007bff;
+}
+
+.status-aprobada {
+  background-color: #28a745;
+}
+
+.status-reprobada {
+  background-color: #dc3545;
+}
