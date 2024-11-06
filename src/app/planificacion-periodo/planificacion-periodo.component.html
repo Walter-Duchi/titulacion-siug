@@ -1,1 +1,31 @@
-<p>planificacion-periodo works!</p>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Formulario Creación de Periodo</h2>
+    <form>
+        <div class="form-group">
+            <label for="estado">Estado del Periodo:</label>
+            <select id="estado" name="estado" class="form-control">
+                <option value="activo">Activo</option>
+                <option value="inactivo">Inactivo</option>
+                <option value="planificacion">En Planificación</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="fecha_inicio">Fecha de Inicio del Periodo:</label>
+            <input type="date" id="fecha_inicio" name="fecha_inicio" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="fecha_fin">Fecha de Fin del Periodo:</label>
+            <input type="date" id="fecha_fin" name="fecha_fin" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label for="ciclo">Ciclo Actual:</label>
+            <input type="text" id="ciclo" name="ciclo" placeholder="CII 2024-2025" class="form-control" disabled>
+        </div> 
+        
+        <button type="submit" class="btn btn-primary mt-3 d-block mx-auto">Registrar Periodo</button>
+    </form>
+</div>
+
