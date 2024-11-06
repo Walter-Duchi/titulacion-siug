@@ -1,1 +1,61 @@
-<p>asignacion-revisores works!</p>
+<div class="container">
+  <mat-card class="assign-card">
+    <mat-card-title>Asignación de Revisores</mat-card-title>
+
+    <mat-table [dataSource]="propuestas" class="mat-elevation-z8">
+
+      <!-- Título de la Propuesta -->
+      <ng-container matColumnDef="titulo">
+        <mat-header-cell *matHeaderCellDef> Título de la Propuesta </mat-header-cell>
+        <mat-cell *matCellDef="let propuesta"> {{propuesta.titulo}} </mat-cell>
+      </ng-container>
+
+      <!-- Nombre del Estudiante -->
+      <ng-container matColumnDef="nombreEstudiante">
+        <mat-header-cell *matHeaderCellDef> Nombre del Estudiante </mat-header-cell>
+        <mat-cell *matCellDef="let propuesta"> {{propuesta.nombreEstudiante}} </mat-cell>
+      </ng-container>
+
+      <!-- Fecha de Carga -->
+      <ng-container matColumnDef="fechaCarga">
+        <mat-header-cell *matHeaderCellDef> Fecha de Carga </mat-header-cell>
+        <mat-cell *matCellDef="let propuesta"> {{propuesta.fechaCarga | date:'dd/MM/yyyy'}} </mat-cell>
+      </ng-container>
+
+      <!-- Estado Actual -->
+      <ng-container matColumnDef="estado">
+        <mat-header-cell *matHeaderCellDef> Estado Actual </mat-header-cell>
+        <mat-cell *matCellDef="let propuesta"> {{propuesta.estado}} </mat-cell>
+      </ng-container>
+
+      <!-- Revisor Asignado -->
+      <ng-container matColumnDef="revisor">
+        <mat-header-cell *matHeaderCellDef> Revisor Asignado </mat-header-cell>
+        <mat-cell *matCellDef="let propuesta">
+          <mat-select [(value)]="propuesta.revisor" placeholder="Seleccionar Revisor">
+            <mat-option *ngFor="let revisor of revisores" [value]="revisor.id">
+              {{revisor.nombre}}
+            </mat-option>
+          </mat-select>
+        </mat-cell>
+      </ng-container>
+
+      <!-- Archivos Adjuntos -->
+      <ng-container matColumnDef="archivos">
+        <mat-header-cell *matHeaderCellDef> Archivos Adjuntos </mat-header-cell>
+        <mat-cell *matCellDef="let propuesta">
+          <a *ngIf="propuesta.archivos" [href]="propuesta.archivos" target="_blank">Anteproyecto.pdf</a>
+        </mat-cell>
+      </ng-container>
+
+      <!-- Filas y celdas -->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+    <!-- Botón Asignar Propuesta -->
+    <div class="assign-button">
+      <button mat-raised-button color="primary" (click)="asignarRevisor()">Asignar Revisores</button>
+    </div>
+  </mat-card>
+</div>

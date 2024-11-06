@@ -1,0 +1,91 @@
+.container {
+  padding: 100px;
+  background-color: #b6b7bc;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+mat-header-cell, mat-cell {
+  color: #000000;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  background-color: #30add1;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #31b0d5;
+}
+
+button:active {
+  background-color: #269abc;
+}
+.container {
+  padding: 20px;
+}
+
+.assign-card {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+mat-header-cell {
+  background-color: #005dcb;
+  color: black;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+
+
+}
+
+mat-cell, mat-header-cell {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.assign-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+mat-select {
+  background-color: #b6b7bc;
+}
+
+mat-option:hover {
+  background-color: #3a4f63;
+}
+
+button.mat-raised-button {
+  background-color: #31b0d5;
+  color: #ffffff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+button.mat-raised-button:disabled {
+  background-color: #269abc;
+}
+
+button.mat-raised-button:hover {
+  background-color: #30add1;
+}
