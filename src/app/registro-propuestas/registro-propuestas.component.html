@@ -1,37 +1,52 @@
 <div class="container mt-4">
     <h2 class="text-center mb-4">Asignación de Propuestas</h2>
-    <table class="table table-bordered table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th>Título de la Propuesta</th>
-          <th>Nombre del Estudiante</th>
-          <th>Fecha de Carga</th>
-          <th>Estado Actual</th>
-          <th>Revisor Asignado</th>
-          <th>Archivos Adjuntos</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let propuesta of propuestas">
-          <td>{{ propuesta.titulo }}</td>
-          <td>{{ propuesta.estudiante }}</td>
-          <td>{{ propuesta.fechaCarga }}</td>
-          <td>{{ propuesta.estado }}</td>
-          <td>
-            <mat-form-field appearance="fill" class="w-100">
-              <mat-select [(ngModel)]="propuesta.revisor">
-                <mat-option *ngFor="let revisor of revisores" [value]="revisor">
-                  {{ revisor }}
-                </mat-option>
-              </mat-select>
-            </mat-form-field>
-          </td>
-          <td><a href="{{ propuesta.archivo }}" target="_blank">Descargar</a></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Título de la Propuesta</th>
+            <th scope="col">Nombre del Estudiante</th>
+            <th scope="col">Fecha de Carga</th>
+            <th scope="col">Estado Actual</th>
+            <th scope="col">Revisor Asignado</th>
+            <th scope="col">Archivos Adjuntos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let propuesta of propuestas">
+            <td>{{ propuesta.titulo }}</td>
+            <td>{{ propuesta.estudiante }}</td>
+            <td>{{ propuesta.fechaCarga | date:'dd/MM/yyyy' }}</td>
+            <td>
+              <span [ngClass]="{
+                'badge rounded-pill': true,
+                'bg-warning': propuesta.estado === 'Pendiente',
+                'bg-info': propuesta.estado === 'En Revisión',
+                'bg-danger': propuesta.estado === 'Con Observaciones'
+              }">{{ propuesta.estado }}</span>
+            </td>
+            <td>
+              <mat-form-field appearance="outline">
+                <mat-select [(ngModel)]="propuesta.revisor" placeholder="Seleccionar revisor">
+                  <mat-option *ngFor="let revisor of revisores" [value]="revisor">
+                    {{ revisor }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td class="text-center">
+              <a href="{{ propuesta.archivo }}" target="_blank" class="btn btn-sm btn-outline-primary">
+                <i class="fas fa-download me-1"></i> Descargar
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="text-center">
-      <button class="btn btn-primary mt-3" (click)="asignarPropuesta()">Asignar Propuesta</button>
+      <button class="btn btn-primary mt-4" (click)="asignarPropuesta()">
+        <i class="fas fa-save me-2"></i>Guardar Asignaciones
+      </button>
     </div>
   </div>
   

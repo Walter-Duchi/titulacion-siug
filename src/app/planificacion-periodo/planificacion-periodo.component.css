@@ -1,0 +1,32 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh;
+    margin: 0; 
+}
+
+.container {
+    max-width: 600px; 
+    padding: 20px; 
+    background-color: #ffffff; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+label {
+    font-weight: bold;
+    display: block; 
+    margin-bottom: 10px; /* Espacio debajo de cada label */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espacio entre cada campo */
+}
+
+.form-control {
+    margin-bottom: 10px; /* Espacio debajo de cada campo de entrada */
+}
+
+
