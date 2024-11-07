@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Formulario Creación de Periodo</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="estado">Estado del Periodo:</label>
+        <mat-form-field class="w-100">
+          <mat-select id="estado" [(ngModel)]="estadoPeriodo" name="estado">
+            <mat-option value="activo">Activo</mat-option>
+            <mat-option value="inactivo">Inactivo</mat-option>
+            <mat-option value="planificacion">En Planificación</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+      <div class="form-group">
+        <label for="fecha_inicio">Fecha de Inicio del Periodo:</label>
+        <input type="date" id="fecha_inicio" [(ngModel)]="fechaInicio" name="fecha_inicio" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="fecha_fin">Fecha de Fin del Periodo:</label>
+        <input type="date" id="fecha_fin" [(ngModel)]="fechaFin" name="fecha_fin" class="form-control">
+      </div>
+      
+      <div class="form-group">
+        <label for="ciclo">Ciclo Actual:</label>
+        <input type="text" id="ciclo" [(ngModel)]="ciclo" name="ciclo" class="form-control" disabled>
+      </div> 
+      
+      <button type="submit" class="btn btn-primary mt-3 d-block mx-auto">Registrar Periodo</button>
+    </form>
+  </div>
+  
+  
+

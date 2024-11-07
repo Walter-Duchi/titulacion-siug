@@ -1,0 +1,137 @@
+<div class="container my-4">
+    <!-- Crear Comisión de Revisión -->
+    <div class="main-card">
+      <div class="mat-card-header">
+        <h2 class="mat-card-title">Crear Comisión de Revisión</h2>
+      </div>
+      <div class="p-4">
+        <form [formGroup]="comisionForm" (ngSubmit)="crearComision()">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre de la Comisión:</label>
+            <input placeholder="Escriba aquí..." id="nombre" formControlName="nombre" class="form-control">
+          </div>
+  
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción:</label>
+            <textarea placeholder="Escriba aquí..." id="descripcion" formControlName="descripcion" class="form-control"></textarea>
+          </div>
+  
+          <div class="mb-3">
+              <label class="form-label">Lista de Miembros:</label>
+              <div id="miembros">
+                <div *ngFor="let miembro of miembrosDisponibles" class="form-check">
+                  <input placeholder=" elige los miembros"
+                    type="checkbox" 
+                    [id]="'miembro-' + miembro.id" 
+                    [value]="miembro.id"
+                    (change)="onCheckboxChange($event)"
+                    class="form-check-input"
+                  />
+                  <span class="form-check-label">{{ miembro.nombre }}</span>
+                </div>
+              </div>
+            </div>
+            
+  
+          <div class="mb-3">
+            <label for="coordinador" class="form-label">Coordinador de Revisión:</label>
+            <select id="coordinador" formControlName="coordinador" class="form-select">
+              <option *ngFor="let miembro of miembrosDisponibles" [value]="miembro.id">{{ miembro.nombre }}</option>
+            </select>
+          </div>
+  
+          <button type="submit" class="btn btn-primary" [disabled]="comisionForm.invalid">Crear Comisión</button>
+        </form>
+      </div>
+    </div>
+  
+    <!-- Comisiones Existentes -->
+    <div class="main-card mt-4">
+      <div class="mat-card-header">
+        <h2 class="mat-card-title">Comisiones Existentes</h2>
+      </div>
+      <div class="p-4">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripción</th>
+              <th>Fecha de Creación</th>
+              <th>Estado</th>
+              <th>Opciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let comision of comisiones; let i = index">
+              <td>{{ comision.nombre }}</td>
+              <td>{{ comision.descripcion }}</td>
+              <td>{{ comision.fechaCreacion }}</td>
+              <td>{{ comision.estado }}</td>
+              <td>
+                <button (click)="editarComision(comision)" class="btn btn-warning btn-sm">Editar</button>
+                <button (click)="eliminarComision(i)" class="btn btn-danger btn-sm">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <!-- Asignación de Propuestas a Comisiones -->
+    <div class="main-card mt-4">
+      <div class="mat-card-header">
+        <h2 class="mat-card-title">Asignación de Propuestas a Comisiones</h2>
+      </div>
+      <div class="p-4">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Título de la Propuesta</th>
+              <th>Estudiante</th>
+              <th>Fecha de Carga</th>
+              <th>Comisión Asignada</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let propuesta of propuestas">
+              <td>{{ propuesta.titulo }}</td>
+              <td>{{ propuesta.estudiante }}</td>
+              <td>{{ propuesta.fechaCarga }}</td>
+              <td>
+                <select [(ngModel)]="propuesta.comisionAsignada" (ngModelChange)="asignarPropuesta(propuesta, propuesta.comisionAsignada)" class="form-select">
+                  <option value="" disabled>Seleccione una comisión</option>
+                  <option *ngFor="let comision of comisiones" [value]="comision.nombre">{{ comision.nombre }}</option>
+                </select>
+              </td>
+              <td>
+                <button (click)="asignarPropuesta(propuesta, propuesta.comisionAsignada)" class="btn btn-success btn-sm" [disabled]="!propuesta.comisionAsignada">Asignar a Comisión</button>
+                <button (click)="verDetallePropuesta(propuesta)" class="btn btn-info btn-sm">Ver Detalles</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <!-- Detalles de la propuesta seleccionada -->
+    <div *ngIf="propuestaSeleccionada" class="detalle-propuesta main-card mt-4">
+      <div class="mat-card-header">
+         <h2 class="mat-card-title">Detalles de la Propuesta</h2>
+      </div>
+      <div class="p-4">
+        <p><strong>Título:</strong> {{ propuestaSeleccionada.titulo }}</p>
+        <p><strong>Descripción:</strong> {{ propuestaSeleccionada.descripcion }}</p>
+        <p><strong>Estudiante:</strong> {{ propuestaSeleccionada.estudiante }}</p>
+        <p><strong>Código del Estudiante:</strong> {{ propuestaSeleccionada.codigoEstudiante }}</p>
+        <p><strong>Fecha de Carga:</strong> {{ propuestaSeleccionada.fechaCarga }}</p>
+        <p><strong>Archivos Adjuntos:</strong></p>
+        <ul>
+          <li *ngFor="let archivo of propuestaSeleccionada.archivosAdjuntos">
+            <a [href]="archivo.url" target="_blank">{{ archivo.nombre }}</a>
+          </li>
+        </ul>
+        <button (click)="cerrarDetallePropuesta()" class="btn btn-secondary">Cerrar Detalles</button>
+      </div>
+    </div>
+  </div>

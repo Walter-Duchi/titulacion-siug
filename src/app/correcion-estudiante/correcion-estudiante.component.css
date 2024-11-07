@@ -1,0 +1,183 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  background-color: #f0f4f8;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* Tarjeta principal */
+.main-card {
+  background-color: #ffffff;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.main-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Encabezado de tarjeta */
+.mat-card-header {
+  background: linear-gradient(135deg, #005dcb, #0056b3);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Títulos */
+.mat-card-title {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.mat-card-subtitle {
+  color: #e0e0e0 !important;
+  font-size: 1.2rem !important;
+}
+
+/* Sección de información del estudiante */
+.student-info-section {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  border-left: 5px solid #005dcb;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos de secciones */
+.student-info-section h3 {
+  color: #005dcb;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+/* Texto de observaciones */
+.observation-text {
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Sección de estado */
+.status-section {
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Mejora de botones */
+button[mat-raised-button] {
+  background-color: #005dcb !important;
+  color: white !important;
+  padding: 12px 24px !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button[mat-raised-button]:hover {
+  background-color: #004b99 !important;
+  box-shadow: 0 4px 8px rgba(0, 93, 203, 0.3) !important;
+}
+
+/* Campos de formulario mejorados */
+mat-form-field {
+  width: 100%;
+}
+
+/* Sección de historial */
+.timeline {
+  position: relative;
+  padding: 1rem;
+}
+
+.timeline-item {
+  padding: 1.5rem;
+  border-left: 5px solid #005dcb;
+  margin-bottom: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeline-date {
+  font-weight: 600;
+  color: #005dcb;
+  font-size: 1.1rem;
+}
+
+.timeline-reviewer {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* Mejora de secciones */
+.status-pendiente,
+.status-con-observaciones,
+.status-aprobada,
+.status-reprobada {
+  font-weight: 600;
+  padding: 8px 16px !important;
+  border-radius: 4px;
+  color: white !important;
+}
+
+/* Estados mejorados */
+.status-pendiente {
+  background-color: #e0e0e0 !important;
+}
+
+.status-con-observaciones {
+  background-color: #007bff !important;
+}
+
+.status-aprobada {
+  background-color: #28a745 !important;
+}
+
+.status-reprobada {
+  background-color: #dc3545 !important;
+}
+
+/* Sección de carga de archivos */
+.file-upload-section {
+  margin: 1.5rem 0;
+}
+
+.file-upload-section input {
+  padding: 1rem;
+  border: 2px dashed #dee2e6;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.file-upload-section input:hover {
+  border-color: #005dcb;
+  background-color: #e9ecef;
+}

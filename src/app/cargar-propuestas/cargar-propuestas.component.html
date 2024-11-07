@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Formulario de Registro de Propuesta</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="titulo">Título de la Propuesta:</label>
+        <input type="text" id="titulo" [(ngModel)]="titulo" name="titulo" placeholder="Nombre de la propuesta" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="descripcion">Descripción de la Propuesta:</label>
+        <textarea id="descripcion" [(ngModel)]="descripcion" name="descripcion" placeholder="Breve descripción del proyecto" class="form-control" rows="4"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="nombre_estudiante">Nombre del Estudiante:</label>
+        <input type="text" id="nombre_estudiante" [(ngModel)]="nombreEstudiante" name="nombre_estudiante" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <label for="comentarios">Observaciones/Comentarios Adicionales:</label>
+        <textarea id="comentarios" [(ngModel)]="comentarios" name="comentarios" placeholder="" class="form-control" rows="4"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="archivos">Archivos Adjuntos:</label>
+        <input type="file" id="archivos" [(ngModel)]="archivo" name="archivos" class="form-control">
+      </div>
+  
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary mt-3">Registrar Propuesta</button>
+      </div>
+    </form>
+  </div>
+  
+

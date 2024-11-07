@@ -1,0 +1,83 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Revisión de Propuestas</h2>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>Título de la Propuesta</th>
+          <th>Nombre del Estudiante</th>
+          <th>Fecha de Carga</th>
+          <th>Estado Actual</th>
+          <th>Archivos</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let propuesta of propuestas">
+          <td>{{ propuesta.titulo }}</td>
+          <td>{{ propuesta.estudiante }}</td>
+          <td>{{ propuesta.fechaCarga | date:'dd/MM/yyyy' }}</td>
+          <td>
+            <span [ngClass]="{
+              'badge rounded-pill': true,
+              'bg-warning': propuesta.estado === 'Pendiente',
+              'bg-info': propuesta.estado === 'En Revisión',
+              'bg-danger': propuesta.estado === 'Rechazada',
+              'bg-success': propuesta.estado === 'Aprobada',
+              'bg-secondary': propuesta.estado === 'Con Observaciones'
+            }">{{ propuesta.estado }}</span>
+          </td>
+          <td class="text-center">
+            <a href="#" class="btn btn-sm btn-outline-primary">
+              <i class="fas fa-download me-1"></i> {{ propuesta.archivo }}
+            </a>
+          </td>
+          <td>
+            <button class="btn btn-primary btn-sm" (click)="seleccionarPropuesta(propuesta)">
+              Revisar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal de Revisión -->
+  <div class="revision-panel" *ngIf="propuestaSeleccionada">
+    <h3>Evaluación de Viabilidad</h3>
+    <div class="viabilidad-section">
+      <mat-radio-group [(ngModel)]="propuestaSeleccionada.esViable">
+        <mat-radio-button [value]="true">Viable</mat-radio-button>
+        <mat-radio-button [value]="false">No Viable</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <div *ngIf="propuestaSeleccionada.esViable" class="correcciones-section">
+      <h4>¿Necesita Correcciones?</h4>
+      <mat-radio-group [(ngModel)]="propuestaSeleccionada.necesitaCorrecciones">
+        <mat-radio-button [value]="true">Sí</mat-radio-button>
+        <mat-radio-button [value]="false">No</mat-radio-button>
+      </mat-radio-group>
+
+      <div *ngIf="propuestaSeleccionada.necesitaCorrecciones" class="observaciones-section">
+        <mat-form-field appearance="fill">
+          <textarea matInput
+            [(ngModel)]="propuestaSeleccionada.observaciones"
+            placeholder="Ingrese las observaciones"
+            rows="4"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="buttons-section">
+      <button class="btn btn-secondary me-2" (click)="propuestaSeleccionada = null">
+        Cancelar
+      </button>
+      <button class="btn btn-primary" (click)="enviarInforme(propuestaSeleccionada)">
+        {{ propuestaSeleccionada.esViable === false ? 'Enviar Informe de Rechazo' :
+           propuestaSeleccionada.necesitaCorrecciones ? 'Enviar Observaciones' : 'Aprobar Propuesta' }}
+      </button>
+    </div>
+  </div>
+</div>
+  
