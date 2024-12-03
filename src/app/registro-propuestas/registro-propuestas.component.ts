@@ -4,6 +4,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { jsPDF } from 'jspdf'; // Importar jsPDF
 
 interface Propuesta {
   titulo: string;
@@ -73,18 +74,65 @@ export class RegistroPropuestasComponent {
   seleccionarPropuesta(propuesta: Propuesta) {
     this.propuestaSeleccionada = propuesta;
   }
+  generarPDF(propuesta: Propuesta) {
+    const doc = new jsPDF();
+    
+    // Título
+    doc.setFontSize(18);
+    doc.setTextColor(0, 51, 102); // Azul oscuro
+    doc.text('Informe de Revisión de Propuesta', 14, 20);
+    
+     // Línea de separación después del título
+     doc.setDrawColor(0, 51, 102);
+     doc.setLineWidth(0.5);
+     doc.line(14, 22, 200, 22);
+
+    // Detalles de la propuesta
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0); // Negro para el texto
+    doc.text(`Título: ${propuesta.titulo}`, 14, 30);
+    doc.text(`Estudiante: ${propuesta.estudiante}`, 14, 40);
+    doc.text(`Fecha de Carga: ${propuesta.fechaCarga}`, 14, 50);
+    doc.text(`Estado: ${propuesta.estado}`, 14, 60);
+    
+    // Comentario adicional dependiendo del estado
+    let comentario = '';
+    if (propuesta.estado === 'Rechazada') {
+      comentario = 'La propuesta fue rechazada debido a que no se considera viable.';
+    } else if (propuesta.estado === 'Con Observaciones') {
+      comentario = propuesta.observaciones || 'Se requieren correcciones.';
+    } else if (propuesta.estado === 'Aprobada') {
+      comentario = 'La propuesta fue aprobada sin necesidad de correcciones.';
+    }
+    doc.text(`Comentario: ${comentario}`, 14, 70);
+      // Línea de separación antes del pie de página
+      doc.setDrawColor(0, 51, 102);
+      doc.setLineWidth(0.5);
+      doc.line(14, 85, 200, 85);
+  
+      // Pie de página con texto de copyright o información adicional
+      doc.setFontSize(10);
+      doc.setTextColor(150, 150, 150); // Gris para el pie de página
+      doc.text('Generado por el sistema de revisión de propuestas', 14, 90);
+    // Descargar el PDF
+    doc.save(`${propuesta.titulo}_Informe.pdf`);
+  }
 
   enviarInforme(propuesta: Propuesta) {
     if (propuesta.esViable === false) {
       propuesta.estado = 'Rechazada';
       alert('Informe de rechazo enviado');
+      this.generarPDF(propuesta);
     } else if (propuesta.esViable && propuesta.necesitaCorrecciones) {
       propuesta.estado = 'Con Observaciones';
       alert('Observaciones enviadas al estudiante');
     } else if (propuesta.esViable && !propuesta.necesitaCorrecciones) {
       propuesta.estado = 'Aprobada';
+      this.generarPDF(propuesta);
       alert('Propuesta aprobada y notificación enviada');
     }
+    
+
     this.propuestaSeleccionada = null;
   }
 }
