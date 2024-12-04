@@ -6,34 +6,39 @@ import { CargarPropuestasComponent } from './cargar-propuestas/cargar-propuestas
 import { CorrecionEstudianteComponent } from './correcion-estudiante/correcion-estudiante.component';
 import { CreacionComisionComponent } from './creacion-comision/creacion-comision.component';
 import { LoginComponent } from './login/login.component';
+import { NotificacionDetalleComponent } from './notificacion-detalle/notificacion-detalle.component'; //add
 
 export const routes: Routes = [
   {
     path: 'login',
-    component:LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'registro-propuesta',
-    component: RegistroPropuestasComponent
+    component: RegistroPropuestasComponent,
   },
   {
     path: 'asignacion-revisores',
-    component: AsignacionRevisoresComponent
+    component: AsignacionRevisoresComponent,
   },
   {
     path: 'planificacion-periodo',
-    component: PlanificacionPeriodoComponent
+    component: PlanificacionPeriodoComponent,
   },
   {
     path: 'cargar-propuestas',
-    component: CargarPropuestasComponent
+    component: CargarPropuestasComponent,
   },
   {
     path: 'correcion-estudiante',
-    component: CorrecionEstudianteComponent
+    component: CorrecionEstudianteComponent,
   },
   {
     path: 'creacion-comision',
-    component: CreacionComisionComponent
-  }
+    component: CreacionComisionComponent,
+  },
+  {
+    path: 'notificacion-detalle',
+    component: NotificacionDetalleComponent,
+  },
 ];

@@ -1,1 +1,26 @@
-<p>notificacion-detalle works!</p>
+<div class="container mt-4">
+  <h2>Detalle de la Notificación</h2>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ notificacion?.titulo }}</h5>
+      <p class="card-text"><strong>Detalle:</strong> {{ notificacion?.mensaje }}</p>
+      <p class="card-text"><strong>Fecha:</strong> {{ notificacion?.fecha }}</p>
+      <p class="card-text" *ngIf="notificacion?.observacionRevisor">
+        <strong>Observación del Revisor:</strong> {{ notificacion?.observacionRevisor }}
+      </p>
+      <p class="card-text" *ngIf="notificacion?.comentarioEstudiante">
+        <strong>Comentario del Estudiante:</strong> {{ notificacion?.comentarioEstudiante }}
+      </p>
+      <p class="card-text" *ngIf="notificacion?.estadoAprobacion !== null">
+        <strong>Estado:</strong>
+        <span *ngIf="notificacion?.estadoAprobacion">Aprobado</span>
+        <span *ngIf="!notificacion?.estadoAprobacion">Desaprobado</span>
+      </p>
+      <p class="card-text" *ngIf="notificacion?.estadoAprobacion === null">
+        <strong>Estado:</strong> Pendiente de revisión
+      </p>
+    </div>
+  </div>
+  <button class="btn btn-primary mt-3" routerLink="['/cargar-propuestas']" >Volver</button>
+</div>
+
