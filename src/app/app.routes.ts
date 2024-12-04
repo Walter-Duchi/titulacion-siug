@@ -5,8 +5,13 @@ import { PlanificacionPeriodoComponent } from './planificacion-periodo/planifica
 import { CargarPropuestasComponent } from './cargar-propuestas/cargar-propuestas.component';
 import { CorrecionEstudianteComponent } from './correcion-estudiante/correcion-estudiante.component';
 import { CreacionComisionComponent } from './creacion-comision/creacion-comision.component';
+import { LoginComponent } from './login/login.component';
 
 export const routes: Routes = [
+  {
+    path: 'login',
+    component:LoginComponent
+  },
   {
     path: 'registro-propuesta',
     component: RegistroPropuestasComponent
