@@ -1,0 +1,84 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh;
+  margin: 0; 
+  background-color: #f4f4f4; 
+}
+
+.container {
+  width: 100%;
+  max-width: 500px; 
+  padding: 30px; 
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control, .form-select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: normal;
+  text-transform: none;
+}
+
+/* Cambiar a un color azul más oscuro al pasar el mouse */
+.btn:hover {
+  background-color: #025fc3;  /* Color azul más oscuro */
+  color: white;  /* Mantener el texto blanco */
+}
+
+/* No cambiar el color al hacer clic */
+.btn:active {
+  background-color: #007bff;  /* Mantener el color de fondo original */
+  color: white;  /* Mantener el color del texto igual */
+}
+
+.text-center {
+  text-align: center;
+}
+
+.footer-text {
+  margin-top: 40px;
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+/* Estilo para las palabras en azul */
+.highlight {
+  color: #007bff;  /* Color azul */
+  cursor: default;
+}
+
+
+
+
+
+  
