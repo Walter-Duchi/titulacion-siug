@@ -1,38 +1,69 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Titulación Siug</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      title="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
           <!--Madeline Toala-->
-          <a class="nav-link" routerLink="/login" routerLinkActive="active" >Iniciar Sesión</a>
+          <a class="nav-link" routerLink="/planificacion-periodo" routerLinkActive="active">Planificación del Periodo
+            (Secretaria)</a>
         </li>
         <li class="nav-item">
           <!--Madeline Toala-->
-          <a class="nav-link" routerLink="/planificacion-periodo" routerLinkActive="active" >Planificación del Periodo (Secretaria)</a>
-        </li>
-        <li class="nav-item">
-          <!--Madeline Toala-->
-          <a class="nav-link" routerLink="/cargar-propuestas" routerLinkActive="active">Cargar propuestas (Secretaria)</a>
+          <a class="nav-link" routerLink="/cargar-propuestas" routerLinkActive="active">Cargar propuestas
+            (Secretaria)</a>
         </li>
         <li class="nav-item">
           <!--Christopher Velez-->
-          <a class="nav-link" routerLink="/creacion-comision" routerLinkActive="active">Creación de comisión de revisión (Gestor)</a>
+          <a class="nav-link" routerLink="/creacion-comision" routerLinkActive="active">Creación de comisión de revisión
+            (Gestor)</a>
         </li>
         <li class="nav-item">
           <!--Walter Duchi-->
-          <a class="nav-link" routerLink="/asignacion-revisores" routerLinkActive="active">Asignación de Revisores (Coordinador)</a>
+          <a class="nav-link" routerLink="/asignacion-revisores" routerLinkActive="active">Asignación de Revisores
+            (Coordinador)</a>
         </li>
         <li class="nav-item">
           <!--Narcisa Carrillo-->
-          <a class="nav-link" routerLink="/registro-propuesta" routerLinkActive="active">Registro de propuestas (Revisor)</a>
+          <a class="nav-link" routerLink="/registro-propuesta" routerLinkActive="active">Registro de propuestas
+            (Revisor)</a>
         </li>
         <li class="nav-item">
           <!--Lindao Jose-->
-          <a class="nav-link" routerLink="/correcion-estudiante" routerLinkActive="active">Revisar Correciones (Estudiante)</a>
+          <a class="nav-link" routerLink="/correcion-estudiante" routerLinkActive="active">Revisar Correciones
+            (Estudiante)</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link position-relative" id="notificationDropdown" data-bs-toggle="dropdown">
+            <i class="fa fa-bell"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+              {{ totalNotificaciones }} <!-- Número de notificaciones pendientes -->
+            </span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown">
+            <li>
+              <h6 class="dropdown-header">Notificaciones</h6>
+            </li>
+
+            <li *ngFor="let notificacion of notificaciones">
+              <a class="dropdown-item" [routerLink]="'/notificacion-detalle'"
+                [queryParams]="{ data: notificacion | json }">
+                {{ notificacion.mensaje }}
+              </a>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item text-center" routerLink="/historial-notificaciones">Ver todas las
+                notificaciones</a></li>
+          </ul>
         </li>
       </ul>
     </div>
